@@ -3,11 +3,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Turtlemonk473/django_assignment.git'
+                git branch: 'main', url: 'https://github.com/Turtlemonk473/django_assignment.git'
             }
         }
         stage('Install Dependencies') {
             steps {
+                sh 'pip install --upgrade pip'
                 sh 'pip install -r requirements.txt'
             }
         }
